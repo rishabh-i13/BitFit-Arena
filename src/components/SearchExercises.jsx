@@ -21,19 +21,20 @@ const SearchExercises = (props) => {
 
     const handelSearch= async ()=>{
         if(search){
-            const exercisesData=await fetchData('https://exercisedb.p.rapidapi.com/exercises',exerciseOptions);
+            props.setBodyPart(search);
+            // const exercisesData=await fetchData('https://exercisedb.p.rapidapi.com/exercises',exerciseOptions);
 
-            const searchedExercises = exercisesData.filter(
-                (item) => item.name.toLowerCase().includes(search)
-                       || item.target.toLowerCase().includes(search)
-                       || item.equipment.toLowerCase().includes(search)
-                       || item.bodyPart.toLowerCase().includes(search),
-              );
+            // const searchedExercises = exercisesData.filter(
+            //     (item) => item.name.toLowerCase().includes(search)
+            //            || item.target.toLowerCase().includes(search)
+            //            || item.equipment.toLowerCase().includes(search)
+            //            || item.bodyPart.toLowerCase().includes(search),
+            //   );
         
 
             setSearch('');
-            console.log(searchedExercises);
-            props.setExercises(searchedExercises);
+            // console.log(searchedExercises);
+            // props.setExercises(searchedExercises);
         }   
     }
 

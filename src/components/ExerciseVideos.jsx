@@ -16,6 +16,7 @@ const ExerciseVideos = (props) => {
         flexDirection:{lg:'row'},gap:{lg:'110px',xs:'0'}
       }}>
         {props.exerciseVideos?.slice(0, 3)?.map((item, index) => (
+          
           <a
             key={index}
             className="exercise-video"
@@ -25,7 +26,7 @@ const ExerciseVideos = (props) => {
           >
             <img style={{ borderTopLeftRadius: '20px' }} src={item.video.thumbnails[0].url} alt={item.video.title} />
             <Box>
-              <Typography sx={{ fontSize: { lg: '28px', xs: '18px' } }} fontWeight={600} color="#000">
+              <Typography sx={{ fontSize: { lg: '25px', xs: '18px' } }} fontWeight={400} color="#000">
                 {item.video.title}
               </Typography>
               <Typography fontSize="14px" color="#000">
