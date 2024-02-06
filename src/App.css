@@ -92,12 +92,13 @@ body {
 
 .exercise-card:hover,
 .bodyPart-card:hover {
-  transform: scale(1.1, 1.1);
+  background-color: #AFDBF5;
+  /* transform: scale(1.1, 1.1); */
 }
 
 .search-btn:hover {
-  color: #FF2625 !important;
-  border: 1px solid #FF2625 !important;
+  color: black;
+  border: 1px solid #002D62;
 }
 
 .exercise-video {

@@ -33,6 +33,7 @@ const SearchExercises = (props) => {
         
 
             setSearch('');
+            
             // console.log(searchedExercises);
             // props.setExercises(searchedExercises);
         }   
@@ -62,7 +63,7 @@ const SearchExercises = (props) => {
             </Button>
         </Box>
         <Box sx={{position:'relative', width:"100%", p:"20px"}}>
-            <HorizontalScrollBar data={bodyParts} bodyPart={props.bodyPart} setBodyPart={props.setBodyPart}/>
+            <HorizontalScrollBar data={bodyParts} bodyPart={props.bodyPart} setBodyPart={props.setBodyPart} isBodyPart/>
         </Box>
     </Stack>
   )

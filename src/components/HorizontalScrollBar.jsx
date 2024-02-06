@@ -6,6 +6,8 @@ import BodyPart from './BodyPart';
 import RightArrowIcon from '../assets/icons/right-arrow.png';
 import LeftArrowIcon from '../assets/icons/left-arrow.png';
 
+import ExerciseCard from './ExerciseCard';
+
 const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
 
@@ -37,7 +39,7 @@ const HorizontalScrollBar = (props) => {
                 title={item.id || item}
                 m="0 40px"
                 >
-                   <BodyPart item={item} bodyPart={props.bodyPart} setBodyPart={props.setBodyPart}/>
+                  {props.isBodyPart ? <BodyPart item={item} bodyPart={props.bodyPart} setBodyPart={props.setBodyPart }/>: <ExerciseCard exercise={item}/>}
                 </Box>
             ))
         }
@@ -45,4 +47,4 @@ const HorizontalScrollBar = (props) => {
   )
 }
 
-export default HorizontalScrollBar
+export default HorizontalScrollBar;
