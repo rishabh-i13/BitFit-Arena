@@ -16,32 +16,33 @@ const ExerciseDetail = () => {
 
   const { id } = useParams();
 
-  console.log(youtubeOptions)
   useEffect(() => {
     const fetchExercisesData = async () => {
-      const exerciseDBUrl = "https://exercisedb.p.rapidapi.com";
-      const youtubeSearchUrl =
-        "https://youtube-search-and-download.p.rapidapi.com";
+      try {
+        const exerciseDBUrl = "https://exercisedb.p.rapidapi.com";
+        const youtubeSearchUrl = "https://youtube-search-and-download.p.rapidapi.com";
 
-      const exerciseDetailData = await fetchData(
-        `${exerciseDBUrl}/exercises/exercise/${id}`,
-        exerciseOptions
-      );
-      // console.log(exerciseDetailData);
-      setExerciseDetail(exerciseDetailData);
+        const exerciseDetailData = await fetchData(
+          `${exerciseDBUrl}/exercises/exercise/${id}`,
+          exerciseOptions
+        );
+        setExerciseDetail(exerciseDetailData);
 
 
-      const exerciseVideosData= await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`,youtubeOptions);
-      setExerciseVideos(exerciseVideosData.contents);
+        const exerciseVideosData= await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`,youtubeOptions);
+        setExerciseVideos(exerciseVideosData.contents);
 
-      const targetMuscleExercisesData = await fetchData(`${exerciseDBUrl}/exercises/target/${exerciseDetailData.target}`, exerciseOptions);
-      setTargetMuscleExercises(targetMuscleExercisesData);
+        const targetMuscleExercisesData = await fetchData(`${exerciseDBUrl}/exercises/target/${exerciseDetailData.target}`, exerciseOptions);
+        setTargetMuscleExercises(targetMuscleExercisesData);
 
-      const equimentExercisesData = await fetchData(`${exerciseDBUrl}/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
-      setEquipmentExercises(equimentExercisesData);
+        const equimentExercisesData = await fetchData(`${exerciseDBUrl}/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
+        setEquipmentExercises(equimentExercisesData);
+
+      } catch (error) {
+        console.log(error)
+      }
 
     };
-    console.log(exerciseDetail.name);
     fetchExercisesData();
   }, [id]);
 

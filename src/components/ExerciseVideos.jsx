@@ -4,9 +4,8 @@ import {Box,Stack,Typography} from '@mui/material';
 
 const ExerciseVideos = (props) => {
 
-  console.log(props.exerciseVideos);
-
   if(!props.exerciseVideos.length) return 'Loading...';
+  
   return (
     <Box sx={{marginTop:{lg:'100px',sx:'20px'}}} p='20px'>
       <Typography variant='h4' mb="33px">

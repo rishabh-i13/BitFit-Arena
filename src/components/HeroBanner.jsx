@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, Stack, Button, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
 import HerobannerImg from "../assets/images/bn2.jpg";
-import { Player } from '@lottiefiles/react-lottie-player';
+// import { Player } from '@lottiefiles/react-lottie-player';
 const HeroBanner = () => {
   return (
     <Box

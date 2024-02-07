@@ -3,7 +3,6 @@ import { Typography, Stack, Button } from "@mui/material";
 import BodyPartImage from "../assets/icons/bodypart.png";
 import TargetImage from "../assets/icons/targetmuscle.png";
 import EquipmentImage from "../assets/icons/dumbbell.png";
-import ExerciseDetail from "../pages/ExerciseDetail";
 
 const Detail = (props) => {
   const { bodyPart, gifUrl, name, target, equipment } = props.exerciseDetail;

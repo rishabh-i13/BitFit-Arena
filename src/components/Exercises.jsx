@@ -10,9 +10,9 @@ const Exercises = (props) => {
   const exercisesPerPage=6;
 
    // Pagination
-   const indexOfLastExercise = currentPage * exercisesPerPage;
-   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
-   const currentExercises = props.exercises.slice(indexOfFirstExercise, indexOfLastExercise);
+  //  const indexOfLastExercise = currentPage * exercisesPerPage;
+  //  const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
+  //  const currentExercises = props.exercises.slice(indexOfFirstExercise, indexOfLastExercise);
 
   const paginate=(e,value)=>{
     setCurrentPage(value);
@@ -22,16 +22,21 @@ const Exercises = (props) => {
 
   useEffect(()=>{
     const fetchExercisesData=async ()=>{
-      let exercisesData=[];
+      try {
+        let exercisesData=[];
 
-      if(props.bodyPart==='all'){
-        exercisesData=await fetchData('https://exercisedb.p.rapidapi.com/exercises',exerciseOptions);
-      }
-      else{
-        exercisesData=await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${props.bodyPart}`,exerciseOptions);
-      }
+        if(props.bodyPart==='all'){
+          exercisesData=await fetchData('https://exercisedb.p.rapidapi.com/exercises',exerciseOptions);
+        }
+        else{
+          exercisesData=await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${props.bodyPart}`,exerciseOptions);
+        }
 
-      props.setExercises(exercisesData);
+        props.setExercises(exercisesData);
+        
+      } catch (error) {
+          console.log(error)
+      }
     }
     fetchExercisesData();
 
@@ -53,7 +58,7 @@ const Exercises = (props) => {
           props.exercises.length>exercisesPerPage && (
             <Pagination
             color='standard'
-            Shape="rounded"
+            shape="rounded"
             defaultPage={1}
             count={Math.ceil(props.exercises.length/exercisesPerPage)}
             page={currentPage}
